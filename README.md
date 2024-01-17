@@ -82,6 +82,10 @@ FunnyNet-data/
     │   ├── train_8s/
     │   └── validation_8s/
     └── sub_split/             # `.pk` files with subtitles 8 seconds windows
+    |   ├── sub_test_8s.pk
+    |   ├── sub_train_8s.pk
+    |   └── sub_validation_8s.pk
+    └── automatic_sub_split/   # `.pk` files with subtitles 8 seconds windows
         ├── sub_test_8s.pk
         ├── sub_train_8s.pk
         └── sub_validation_8s.pk
@@ -92,20 +96,27 @@ Note: we cannot provide audio and video data for obvious copyright issues.
 
 ### Data processing
 
-Please follow our previous work on [FunnyNet](https://github.com/robincourant/FunnyNet/tree/main)
+Split audio, subtitles and videos into segments of n seconds (default 8 seconds), and use Whisper to generate automatic subtitles from audio in the wild:
+```sh
+python data_processing/mask_audio.py DATA_DIR/audio/raw DATA_DIR/audio/laughter DATA_DIR/audio/processed
+python data_processing/audio_processing.py DATA_DIR/audio/processed DATA_DIR/laughter/xx.pk DATA_DIR/audio_split
+python data_processing/sub_processing.py DATA_DIR/sub DATA_DIR/laughter/xx.pk DATA_DIR/sub_split
+python data_processing/video_processing.py DATA_DIR/episode DATA_DIR/laughter/xx.pk DATA_DIR/video_split
+python data_processing/whisper_extractor.py DATA_DIR/audio_split DATA_DIR/laughter/xx.pk DATA_DIR/automatic_sub_split
+```
 
 ### Training
 
 1. Train multimodality with audio, vision and subtitle
 ```sh
-python funnynet/train.py model.batch_size=BATCH_SIZE xp_name=XP_NAME data.data_dir=DATA_DIR model=avf-timesformer-byol-lstm data=avf-timesformer-byol-lstm
+python main_audio+vision+sub_videomae_llama friends_path llama2_pts_path
 ```
 
 ### Testing
 
 1. Test multimodality with audio, vision and subtitle
 ```sh
-python funnynet/evaluate.py
+python eval_audio+vision+sub_videomae_llama friends_path llama2_pts_path --model_file models/audio+vision+sub_videomae_llama_whisper.pth
 ```
 
 
