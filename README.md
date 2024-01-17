@@ -1,7 +1,5 @@
 # FunnyNet-W (Multimodal Learning of Funny Moments in Videos in the Wild)
 
-[![Open TxST in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1RO_gZBqSHoNWt-lo8oaw5NBI2E3dXASi?usp=sharing)<br>
-
 By Zhi-Song Liu, Robin Courant and Vicky Kalogeiton
 
 This repo only provides simple testing codes, pre-trained models, and the network strategy demo.
@@ -113,7 +111,7 @@ python main_audio+vision+sub_videomae_llama friends_path llama2_pts_path
 ```
 
 ### Testing
-
+1. Download pretrained model from this [link](https://drive.google.com/file/d/1Kjbo6DxkaJYHaLeMwR7tcX4T6ByEe-ok/view?usp=sharing), and put it under "./models"
 1. Test multimodality with audio, vision and subtitle
 ```sh
 python eval_audio+vision+sub_videomae_llama friends_path llama2_pts_path --model_file models/audio+vision+sub_videomae_llama_whisper.pth
