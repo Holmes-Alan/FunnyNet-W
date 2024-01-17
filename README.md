@@ -85,7 +85,7 @@ FunnyNet-data/
     |   ├── sub_test_8s.pk
     |   ├── sub_train_8s.pk
     |   └── sub_validation_8s.pk
-    └── automatic_sub_split/   # `.pk` files with subtitles 8 seconds windows
+    └── automatic_sub_split/   # `.pk` files with automatic subtitles 8 seconds windows
         ├── sub_test_8s.pk
         ├── sub_train_8s.pk
         └── sub_validation_8s.pk
