@@ -28,8 +28,8 @@ CUDA 11.3
 
 1. Clone code to your local computer.
 ```sh
-git clone https://github.com/robincourant/FunnyNet.git
-cd FunnyNet
+git clone https://github.com/Holmes-Alan/FunnyNet-W.git
+cd FunnyNet-W
 ```
 
 2. Create working environment.
