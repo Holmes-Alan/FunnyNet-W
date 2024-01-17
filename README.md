@@ -2,8 +2,6 @@
 
 By Zhi-Song Liu, Robin Courant and Vicky Kalogeiton
 
-This repo only provides simple testing codes, pre-trained models, and the network strategy demo.
-
 We present FunnyNet-W, a versatile and efficient framework for funny moment detection in the video.
 
 ### [Project Page](https://www.lix.polytechnique.fr/vista/projects/2024_ijcv_liu/) | [Paper](https://arxiv.org/pdf/2401.04210.pdf) | [Data](https://drive.google.com/drive/folders/1ZM6agmEnheiyP0IIrD3Fc7DOubjyu5eO?usp=share_link)
