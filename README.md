@@ -6,7 +6,7 @@ This repo only provides simple testing codes, pre-trained models, and the networ
 
 We present FunnyNet-W, a versatile and efficient framework for funny moment detection in the video.
 
-Please check our [paper]([https://arxiv.org/abs/2401.04210])
+Please check our [paper](https://arxiv.org/abs/2401.04210)
 
 # BibTex
 
