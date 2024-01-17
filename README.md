@@ -119,3 +119,22 @@ python eval_audio+vision+sub_videomae_llama friends_path llama2_pts_path --model
 ## Laughter detection
 
 Please follow our previous work on [FunnyNet](https://github.com/robincourant/FunnyNet/tree/main)
+
+## Reference
+If you find our work useful and interesting to you, please consider citing our papers
+        @InProceedings{funnynet,
+            author = {Liu, Zhi-Song and Courant, Robin and Kalogeiton, Vicky},
+            title = {FunnyNet: Audiovisual Learning of Funny Moments in Videos},
+            booktitle = {Asian Conference on Computer Vision (ACCV)},
+            year = {2023},
+            pages={433-450},
+            doi = {10.1007/978-3-031-26316-3_26}
+        }
+        @InProceedings{funnynet-w,
+            author = {Liu, Zhi-Song and Courant, Robin and Kalogeiton, Vicky},
+            title = {FunnyNet-W: Multimodal Learning of Funny Moments in Videos in the Wild},
+            booktitle = {International Journal of Computer Vision},
+            year = {2024},
+            pages={},
+            doi={}
+        }
