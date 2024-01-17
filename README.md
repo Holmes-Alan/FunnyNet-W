@@ -48,22 +48,12 @@ conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit
 pip install -r requirements.txt
 ```
 
-1. Run the setup script to intsall all the dependencies.
+2. Run the setup script to intsall all the dependencies.
 ```
 ./setup.sh
 ```
 
-1. Modify in `ext/TimeSformer/timesformer/models/vit_utils.py`
-```
-from torch._six import container_abcs --> import collections.abc as container_abcs
-```
-
-1. Comment `ext/TimeSformer/timesformer/models/resnet_helper.py`
-```
-from torch.nn.modules.linear import _LinearWithBias
-```
-
-1. Download friends data:
+3. Download friends data:
 ```
 gdown https://drive.google.com/drive/folders/1ZM6agmEnheiyP0IIrD3Fc7DOubjyu5eO -O ./data --folder
 ```
@@ -102,24 +92,18 @@ Note: we cannot provide audio and video data for obvious copyright issues.
 
 ### Data processing
 
-Split audio, subtitles and videos into segments of n seconds (default 8 seconds):
-```sh
-python data_processing/mask_audio.py DATA_DIR/audio/raw DATA_DIR/audio/laughter DATA_DIR/audio/processed
-python data_processing/audio_processing.py DATA_DIR/audio/raw DATA_DIR/laughter/xx.pk DATA_DIR/audio_split
-python data_processing/sub_processing.py DATA_DIR/sub DATA_DIR/laughter/xx.pk DATA_DIR/sub_split
-python data_processing/video_processing.py DATA_DIR/episode DATA_DIR/laughter/xx.pk DATA_DIR/video_split
-```
+Please follow our previous work on [FunnyNet](https://github.com/robincourant/FunnyNet/tree/main)
 
 ### Training
 
-1. Train multimodality with audio and vision
+1. Train multimodality with audio, vision and subtitle
 ```sh
 python funnynet/train.py model.batch_size=BATCH_SIZE xp_name=XP_NAME data.data_dir=DATA_DIR model=avf-timesformer-byol-lstm data=avf-timesformer-byol-lstm
 ```
 
 ### Testing
 
-1. Test multimodality with audio and vision
+1. Test multimodality with audio, vision and subtitle
 ```sh
 python funnynet/evaluate.py
 ```
@@ -127,14 +111,4 @@ python funnynet/evaluate.py
 
 ## Laughter detection
 
-There is 4 scripts:
-
-- `laughter_detection/scripts/extract_audio.py`: extracts from video files contained in `episode/` corresponding audio tracks and saves them in `audio/raw/` .
-
-- `laughter_detection/scripts/detect_laughter.py`: detects laughters from audio files in `audio/raw/` and saves laughter timecodes as `.pickle` files in `audio/laughter/`.
-
-- `laughter_detection/scripts/extract_laughter.py`: extracts from raw audio segments in `audio/raw/` each detected laughter in `audio/laughter/` and saves them in `audio/laughter_segment/`.
-
-- `laughter_detection/scripts/evaluate_laughters.py`: given directories of predicted and ground-truth laughter files (`.pickle`), compare them and compute metrics.
-
-- 
+Please follow our previous work on [FunnyNet](https://github.com/robincourant/FunnyNet/tree/main)
